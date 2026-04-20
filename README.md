@@ -1,112 +1,161 @@
 # AI FP&A Copilot
 
-A portfolio-ready demo showing how governed finance data can be turned into executive narrative, driver analysis, and scenario commentary using the OpenAI Responses API.
+An AI-powered financial planning assistant that transforms raw financial data into executive-ready insights, forecasts, and scenario analysis.
 
-This project is intentionally positioned as an **AI layer on top of Oracle EPM / NetSuite Planning exports**, not as a replacement for governed planning tools. The point is to show how AI can accelerate interpretation, board prep, and scenario storytelling while the system of record remains the planning platform.
+---
 
-## Why this repo exists
+## 🚀 Overview
 
-This is designed as a hiring portfolio project for roles that sit between:
-- customer success
-- solution architecture
-- AI adoption
-- enterprise workflow design
+AI FP&A Copilot demonstrates how Large Language Models (LLMs) can augment — not replace — enterprise planning platforms like Oracle EPM and NetSuite Planning.
 
-It demonstrates the ability to:
-- turn raw finance data into usable workflows
-- connect business context to AI outputs
-- position AI within a real enterprise architecture
-- communicate clearly to executive audiences
+This project simulates a real-world workflow:
 
-## What the app does
+* Export financial data from EPM / ERP
+* Run AI-driven analysis
+* Generate executive-level insights instantly
 
-- Upload a monthly finance CSV
-- Validate the dataset with pandas
-- Generate summary metrics and charts
-- Call the OpenAI Responses API for:
-  - executive summary
-  - trend analysis
-  - key drivers
-  - base / upside / downside scenarios
-  - recommended actions
-  - risks to watch
-  - executive questions
-- Export a board memo draft in Markdown
-- Show how the use case maps back to Oracle EPM / NetSuite Planning
+---
 
-## UI sections
+## 💡 Why This Matters
 
-### 1. Dataset & Charts
-A quick review surface for uploaded data, summary metrics, and visual trends.
+Finance teams today face a gap:
 
-### 2. AI Narrative
-The core portfolio demo. This is where the app produces CFO-ready commentary and scenario framing.
+| Traditional EPM           | AI Capabilities          |
+| ------------------------- | ------------------------ |
+| Structured, governed data | Rapid, flexible analysis |
+| Auditability              | Narrative generation     |
+| Workflow & controls       | Scenario exploration     |
 
-### 3. Oracle / NetSuite EPM Story
-A positioning tab that explains how this app would sit alongside governed planning systems.
+👉 The opportunity is combining both.
 
-### 4. Portfolio Notes
-Suggested GitHub positioning and screenshot ideas.
+This project represents a **Hybrid Planning Model**:
 
-## Expected CSV columns
+* **EPM** = system of record
+* **AI** = system of insight
 
-Required:
-- `month`
-- `revenue`
-- `opex`
-- `headcount`
+---
 
-Optional:
-- `cogs`
-- `gross_margin`
-- `ebitda`
-- `cash`
+## 🧠 Key Features
 
-If `ebitda` is not provided, the app estimates it.
+* 📂 Upload financial CSV data
+* 📊 Automated trend and KPI analysis
+* 🤖 AI-generated:
 
-## Quickstart
+  * Executive summary
+  * Key business drivers
+  * Risk assessment
+  * Scenario modeling (Base / Upside / Downside)
+* 📈 Visualization of revenue and margin trends
+* 📝 Exportable board-level narrative
 
-### macOS / Linux
+---
+
+## 🏗️ Architecture
+
+```text
+[ Oracle EPM / NetSuite ]
+            ↓
+     CSV Export Layer
+            ↓
+   Python + Pandas Processing
+            ↓
+   OpenAI API (LLM Analysis)
+            ↓
+   Streamlit UI (Insights + Charts)
+```
+
+---
+
+## 🔗 EPM Integration Perspective
+
+This is not a replacement for Oracle EPM or NetSuite Planning.
+
+Instead, it represents an **AI augmentation layer**:
+
+| Function                 | System     |
+| ------------------------ | ---------- |
+| Consolidation / Close    | EPM        |
+| Budgeting Workflow       | EPM        |
+| Ad-hoc Scenario Analysis | AI Copilot |
+| Executive Narrative      | AI Copilot |
+
+---
+
+## ⚙️ Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/VanBurenAdvisory/ai-fpa-copilot.git
+cd ai-fpa-copilot
+```
+
+---
+
+### 2. Set up environment
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate
+.venv\Scripts\Activate.ps1   # Windows
 pip install -r requirements.txt
-cp .env.example .env
-streamlit run app.py
 ```
 
-### Windows PowerShell
+---
 
-```powershell
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-copy .env.example .env
-streamlit run app.py
-```
+### 3. Add your API key
 
-Then set your API key in `.env`:
+Create a `.env` file:
 
 ```env
 OPENAI_API_KEY=your_api_key_here
-OPENAI_MODEL=gpt-5.4
 ```
 
-## Suggested screenshots for GitHub
+---
 
-1. Main dashboard with hero metrics and charts
-2. AI Narrative tab with executive summary and scenarios
-3. Oracle / NetSuite EPM Story tab with mapping table and reference architecture
+### 4. Run the app
 
-## Suggested resume bullet
+```bash
+streamlit run app.py
+```
 
-Built an AI-powered FP&A Copilot using Python, Streamlit, pandas, and the OpenAI Responses API to transform governed finance exports into executive summaries, scenario analysis, and board-ready commentary.
+---
 
-## Suggested LinkedIn framing
+## 📊 Sample Data
 
-I built a lightweight AI FP&A Copilot to explore how Oracle EPM / NetSuite planning data can be paired with LLMs for board prep, scenario storytelling, and executive narrative generation—without replacing the governed planning system underneath.
+Use:
 
-## Technical notes
+```
+sample_data/demo_financials.csv
+```
 
-This repo uses the current OpenAI Python SDK pattern with `from openai import OpenAI` and `client.responses.create(...)`. It also includes basic retry handling for transient API and rate-limit errors.
+---
+
+## 🎯 Use Case
+
+This project is designed for:
+
+* Finance leaders exploring AI adoption
+* EPM consultants extending their value beyond implementation
+* Organizations evaluating AI-driven planning workflows
+
+---
+
+## 🧭 Future Enhancements
+
+* Direct API integration with NetSuite / Oracle EPM
+* Automated data pipelines (OCI / S3 / Snowflake)
+* Multi-entity consolidation simulation
+* Power BI / dashboard integration
+
+---
+
+## 👤 Author
+
+Jason Wells
+AI & Finance Technology Leader | EPM SME | Solutions Architect
+
+---
+
+## ⚠️ Disclaimer
+
+This is a demonstration project intended for educational and exploratory purposes. Not intended for production financial reporting without validation controls.
